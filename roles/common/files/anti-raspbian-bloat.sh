@@ -26,4 +26,4 @@ for i in $pkgs; do
 done
 
 # rm extra raspbian dirs
-rm -rf /home/pi/Desktop /home/pi/Documents /home/pi/Downloads /home/pi/Music /home/pi/oldconffiles /home/pi/Pictures /home/pi/Public /home/pi/python_games /home/pi/Templates /home/pi/Videos
+rm -rf /home/pi/Desktop /home/pi/Documents /home/pi/Downloads /home/pi/Music /home/pi/oldconffiles /home/pi/Pictures /home/pi/Public /home/pi/python_games /home/pi/Templates /home/pi/Videos /home/pi/MagPi

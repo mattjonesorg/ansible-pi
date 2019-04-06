@@ -45,6 +45,17 @@
   with_items:
     - tightvncserver
 
+- name: Set static IP configuration
+  become: True
+  template:
+    src="interfaces.j2"
+    dest="/etc/network/interfaces"
+    owner=root
+    group=root
+    mode=0644
+  tags: admin
+
+
 - name: 'Reboot'
   become: yes
   become_method: sudo
