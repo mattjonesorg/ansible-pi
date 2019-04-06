@@ -1,3 +1,4 @@
 [pis]
-YOUR_PI_IP_HERE ansible_user=YOUR_PI_USERNAME_HERE ansible_password=YOUR_PI_PASSWORD_HERE
+YOUR_PI_IP_HERE ansible_user=YOUR_PI_USERNAME_HERE ansible_password=YOUR_PI_PASSWORD_HERE target_ip_address=YOUR_STATIC_IP hostname=YOUR_HOSTNAME
+
 
