@@ -2,7 +2,8 @@
 #controlgroup wheel
 
 # Inform the DHCP server of our hostname for DDNS.
-{{hostname}}
+hostname 
+#{{hostname}}
 
 # Use the hardware address of the interface for the Client ID.
 clientid
@@ -55,4 +56,4 @@ slaac private
 interface eth0
 static ip_address={{target_ip_address}}/24
 static routers={{gateway_ip}}
-#static domain_name_servers=127.0.0.1
+static domain_name_servers={{ dns_servers[0] }} {{ dns_servers[1] }}
