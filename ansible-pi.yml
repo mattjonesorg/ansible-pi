@@ -4,18 +4,24 @@
   hosts: all
   remote_user: pi
   pre_tasks:
-    - name: create scans user
-      user: 
-        name: scans 
-        uid: 900
+    - name: Create users
+      user:
+        name: "{{ item }}"
+        groups: users
+        append: true
+      with_items:
+        - matt
+        - susan
+        - scans
+        - scans@
   roles:
-    - common
+#    - common
     - bertvv.samba
 
   vars:
     samba_netbios_name: PIHOLE
     samba_server_string: 'file server'
-    samba_workgroup: WORKGROUP
+    samba_workgroup: JONES-FAMILY
     
 #    samba_global_include: global-include.conf
 
@@ -31,13 +37,21 @@
     samba_users:
       - name: scans
         password: snacs
-        
+      - name: scans@
+        password: snacs
+
     samba_shares_root: /srv/samba
     samba_shares:
       - name: scans
         comment: 'Public share, writeable by all members of group ‘users’'
-        public: yes
+        public: 'yes'
         write_list: +users
         group: users
         setype: public_content_t
-        browseable: yes
+        browseable: 'yes'
+      - name: guestshare
+        comment: 'Share accessible for guests'
+        guest_ok: 'yes'
+        writable: 'yes'
+        browseable: 'yes'
+      
